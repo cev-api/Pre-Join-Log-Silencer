@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "prejoinlogsilencer",
+  "version": "${version}",
+  "name": "Pre-Join Log Silencer",
+  "description": "Silences the INFO 'lost connection' line for connections that disconnect during LOGIN or CONFIGURATION, before they ever reached PLAY. Genuine player disconnects, warnings, errors and stack traces are left untouched.",
+  "authors": [
+    "PreJoin Log Silencer contributors"
+  ],
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "com.cleanerlogs.fabric.PreJoinLogSilencerMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": [
+      ">=1.21 <1.22",
+      ">=26 <27"
+    ],
+    "java": ">=21"
+  }
+}

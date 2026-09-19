@@ -1,0 +1,64 @@
+# ---------------------------------------------------------------------------
+# Gradle
+# ---------------------------------------------------------------------------
+.gradle/
+build/
+*/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ---------------------------------------------------------------------------
+# Java / Eclipse JDT
+#
+# The "bin" folders are the compile output of the VS Code Java language server.
+# ---------------------------------------------------------------------------
+bin/
+*/bin/
+out/
+.classpath
+.project
+.settings/
+.factorypath
+
+# ---------------------------------------------------------------------------
+# IntelliJ IDEA
+# ---------------------------------------------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ---------------------------------------------------------------------------
+# VS Code
+#
+# Keep the shared workspace settings, ignore everything else in the folder.
+# ---------------------------------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+
+# ---------------------------------------------------------------------------
+# Minecraft development servers
+#
+# Neither project defines a Gradle "run" task, so these only appear if you drop
+# a test server next to the source. They must never be committed.
+# ---------------------------------------------------------------------------
+run/
+*/run/
+logs/
+*.log
+eula.txt
+server.properties
+banned-ips.json
+banned-players.json
+ops.json
+whitelist.json
+usercache.json
+world/
+world_nether/
+world_the_end/
+
+# ---------------------------------------------------------------------------
+# Operating system
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini

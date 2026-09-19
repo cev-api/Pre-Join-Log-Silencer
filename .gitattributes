@@ -1,0 +1,19 @@
+# Normalise line endings so the repository is identical on every platform.
+#
+# This matters for gradlew: a shell script committed with CRLF fails on Linux and
+# macOS with "bad interpreter: /bin/sh^M", which would break ./gradlew for anyone
+# who is not on Windows.
+* text=auto eol=lf
+
+# Windows batch files are the one exception: cmd.exe wants CRLF.
+*.bat text eol=crlf
+
+# Shell scripts must keep LF even if the core.autocrlf setting says otherwise.
+gradlew text eol=lf
+*.sh text eol=lf
+
+# Never touch binary content.
+*.jar binary
+*.zip binary
+*.png binary
+*.ico binary

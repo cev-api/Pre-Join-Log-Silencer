@@ -1,0 +1,36 @@
+# Pre-Join Log Silencer
+#
+# Removes the INFO "lost connection" line that Minecraft prints for connections that disconnect
+# during LOGIN or CONFIGURATION, before they reached the PLAY state and became real players.
+#
+# It does NOT change anything else:
+#   * a real player who joined and later disconnected still logs their normal disconnect
+#   * WARN and ERROR events, stack traces, exceptions and crashes are untouched
+#   * no connection is cancelled, blocked, rate limited or otherwise modified
+#
+# This does not identify or block bots. It removes one noisy info message.
+#
+# Commands, operators only: /ls debug   /ls reload
+
+# Master switch.
+enabled: true
+
+# Silence the pre-join disconnect line of the login phase.
+suppress-login-disconnects: true
+
+# Silence the pre-join disconnect line of the configuration phase (Minecraft 1.20.2+).
+suppress-configuration-disconnects: true
+
+# Write the totals to the log once an hour. A summary is written only when something was actually
+# suppressed, so a quiet server writes nothing. Fabric has no command, so this is on by default there.
+log-suppressed-count: false
+
+# Copy every suppressed disconnect line to plugins/PreJoinLogSilencer/suppressed.log, so you can
+# review what was removed. The file is opened in append mode. Genuine player disconnects are never
+# written here, because they are never suppressed.
+log-suppressed-to-file: false
+
+# Diagnostic mode, for working out what a new Minecraft version changed.
+# Prints the logger name, level, message class, raw format string, message parameters and the
+# detector verdict for every event that looks like a disconnect. Defaults to false.
+debug: false

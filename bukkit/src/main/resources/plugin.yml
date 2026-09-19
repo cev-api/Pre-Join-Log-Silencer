@@ -1,0 +1,23 @@
+name: PreJoinLogSilencer
+version: '${version}'
+description: Silences the INFO "lost connection" line for connections that disconnect before reaching PLAY.
+authors: [PreJoin Log Silencer contributors]
+api-version: '1.21'
+# Loaded early so the filter is in place before the first connection is accepted.
+load: STARTUP
+# The plugin only installs a logging filter and performs no region or world work.
+folia-supported: true
+main: com.cleanerlogs.bukkit.PreJoinLogSilencerPlugin
+commands:
+  ls:
+    description: Inspect or reload the pre-join log silencer.
+    usage: /ls <debug|reload>
+    # The permission keeps this command out of the command tree that the server sends to a player who does not
+    # have it, so it is normally not offered as a suggestion. The empty permission-message keeps it invisible
+    # even when it is typed by hand.
+    permission: prejoinlogsilencer.command
+    permission-message: ''
+permissions:
+  prejoinlogsilencer.command:
+    description: Allows use of the /ls command.
+    default: op

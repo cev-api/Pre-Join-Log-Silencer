@@ -1,0 +1,17 @@
+{
+    // The Java language server must import this Gradle build (via the wrapper) to know where the source roots
+    // are. Without the import it reports bogus "package does not match" errors for every file.
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "files.exclude": {
+        "**/build": true,
+        "**/.gradle": true,
+        "**/bin": true
+    },
+    "search.exclude": {
+        "**/build": true,
+        "**/.gradle": true,
+        "**/bin": true
+    }
+}
