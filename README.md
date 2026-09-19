@@ -1,28 +1,32 @@
 # Pre-Join Log Silencer
 
-Scanner bots hammer every public Minecraft server all day. They never join. A connection opens, stops during
-LOGIN or CONFIGURATION, and goes away. Minecraft prints an INFO line for each one, and those lines bury the
-disconnects you care about.
+Bots scan every public Minecraft server. They connect, never log in, then disconnect. The server writes a line
+for each one, and those lines drown out the disconnects that matter.
 
 ```
 [15:22:01 INFO]: Obs_probe (/32.188.152.209:51894) lost connection: Disconnected
 ```
 
-A connection that never reached the PLAY state never became a player. In practice these connections are
-scanners and bots, so that line carries nothing you can act on. This plugin and mod delete exactly that line
-and nothing else.
+That connection never became a player. It stopped during login, before it reached the game. This plugin and mod
+delete those lines.
 
-A real player who joined and later disconnected still gets their line. The tool never touches WARN, ERROR,
-stack traces or crashes. It never blocks, cancels or rate limits a connection. It does not try to identify
-bots, it only stops them from filling your log.
+Your real players are never affected. Someone who joins and later disconnects still gets their line. Warnings,
+errors, stack traces and crashes are untouched. Nothing is blocked, cancelled or rate limited.
+
+## Compatibility
+
+| Platform | Versions |
+| --- | --- |
+| CraftBukkit, Spigot, Paper, Purpur, Pufferfish, Folia | 1.21.x through 26.3 |
+| Fabric | 1.21.x through 26.3 |
+
+Java 21 or higher. The code uses no version-specific classes, no NMS, no mixins and no scheduler, which is why
+one JAR covers the whole range. Folia is fully supported.
 
 ## Install
 
-- Bukkit family (CraftBukkit, Spigot, Paper, Purpur, Pufferfish, Folia):
-  `prejoin-log-silencer-bukkit-1.0.0.jar` into `plugins/`
+- Bukkit family: `prejoin-log-silencer-bukkit-1.0.0.jar` into `plugins/`
 - Fabric: `prejoin-log-silencer-fabric-1.0.0.jar` into `mods/`
-
-Minecraft 1.21.x and 26.x. Java 21 bytecode. No scheduler, so it is Folia safe.
 
 ## Configure
 
